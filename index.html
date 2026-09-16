@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maréa — marés, temporada e precificação no litoral</title>
+<meta name="description" content="Calendário de marés e sazonalidade de locação de temporada no litoral paulista. Satélite da rede praia.digital">
+<style>
+body{margin:0;font-family:system-ui,sans-serif;background:#012a4a;color:#e3f2fd;min-height:100vh}
+header{padding:24px;text-align:center;background:linear-gradient(120deg,#013a63,#2a6f97)}
+nav a{color:#ffd166;margin:0 8px;text-decoration:none;font-size:14px}
+.wrap{max-width:860px;margin:auto;padding:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+.m{background:#013a63;border-radius:12px;padding:14px;text-align:center;cursor:pointer;transition:transform .2s}
+.m:hover{transform:scale(1.05)}
+.alta{background:#2a9d8f}.altissima{background:#e76f51}.media{background:#468faf}
+#det{background:#013a63;border-radius:16px;padding:20px;margin-top:20px}
+.tide{font-size:40px}
+footer{padding:20px;text-align:center;font-size:13px;color:#8ecae6}
+footer a{color:#ffd166}
+</style></head>
+<body>
+<header><h1>🌊 Maréa</h1><p>Sazonalidade de locação + tábua de marés do litoral paulista</p>
+<nav><a href="https://praia.digital">Praia Digital</a><a href="https://praia.digital/calculadora-temporada">Calc. Temporada</a><a href="https://praia.digital/concierge-ia">Concierge IA</a><a href="https://praia.digital/apps">Todos os apps</a></nav></header>
+<div class="wrap">
+<h2>📅 Calendário de demanda 2026/2027</h2><div class="grid" id="grid"></div><div id="det">Clique em um mês para ver a estratégia de precificação 👆</div>
+<h2 style="margin-top:32px">🌙 Marés de hoje (simulação didática)</h2><div id="mares" class="grid"></div>
+</div>
+<footer>Rede <a href="https://praia.digital">praia.digital</a> · <a href="https://praia.digital/eventos-litoral">Eventos</a> · <a href="https://praia.digital/ferramentas-airbnb">Ferramentas Airbnb</a> · <a href="https://praia.digital/radar-precos">Radar de Preços</a></footer>
+<script>
+const meses=[
+['Jan','altissima',4.2,'Férias + verão: máxima demanda. Mínimo 5 noites, preço cheio.'],
+['Fev','altissima',3.6,'Carnaval: pacotes fechados de 4-5 noites.'],
+['Mar','media',2.0,'Demanda cai: aposte em feriadinhos e descontos semanais.'],
+['Abr','media',1.9,'Páscoa e Tiradentes: mini-pacotes de 3 noites.'],
+['Mai','media',1.6,'Baixa temporada: foque em estadias longas e home office.'],
+['Jun','media',1.7,'Férias de julho se aproximam: prepare manutenção.'],
+['Jul','alta',2.6,'Férias escolares: famílias, mínimo 4 noites.'],
+['Ago','media',1.5,'Mês mais fraco: promoções e Airbnb mensal.'],
+['Set','media',1.8,'7 de setembro: feriadão aquece o mercado.'],
+['Out','media',2.0,'12 de outubro + fim de ano chegando: suba preços.'],
+['Nov','alta',2.4,'Feriados prolongados + pré-temporada.'],
+['Dez','altissima',4.5,'Natal e Réveillon: maior faturamento do ano. Veja o Concierge IA para a mensagem perfeita.']];
+document.getElementById('grid').innerHTML=meses.map((m,i)=>`<div class="m ${m[1]}" onclick="det(${i})"><b>${m[0]}</b><br>x${m[2]}</div>`).join('');
+function det(i){const m=meses[i];document.getElementById('det').innerHTML=`<h3>${m[0]} — multiplicador x${m[2]}</h3><p>${m[3]}</p><p><a style="color:#ffd166" href="https://praia.digital/calculadora-temporada">Simular rendimento deste mês →</a></p>`;}
+const now=new Date(),tide=[];
+for(let h=0;h<24;h+=6){const v=Math.sin((now.getHours()+h)/12*Math.PI);tide.push({h:String((now.getHours()+h)%24).padStart(2,'0')+':00',alta:v>0,h_m:(1.1+0.8*Math.abs(v)).toFixed(1)});}
+document.getElementById('mares').innerHTML=tide.map(t=>`<div class="m"><div class="tide">${t.alta?'🌊':'🏖️'}</div><b>${t.h}</b><br>${t.alta?'Alta':'Baixa'} ${t.h_m}m</div>`).join('');
+</script></body></html>
