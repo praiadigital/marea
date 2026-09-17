@@ -1,3 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Maréa — sazonalidade de locação no litoral | Praia Digital</title><meta name="description" content="Curva de ocupação mensal de locação de temporada no litoral paulista: quando seu imóvel mais rende."><link rel="canonical" href="https://praia.digital/marea/"><style>body{font-family:system-ui,-apple-system,sans-serif;margin:0;background:#f8fafc;color:#0f172a;line-height:1.6}.hero{background:linear-gradient(135deg,#0c4a6e,#0ea5e9);color:#fff;padding:60px 20px;text-align:center}.container{max-width:880px;margin:auto;padding:30px 20px}.card{background:#fff;border-radius:13px;padding:24px;margin-bottom:16px;box-shadow:0 3px 10px #0001}.row{display:flex;align-items:center;gap:10px;margin:6px 0}.row span{width:40px;font-weight:600}.bar{flex:1;height:26px;border-radius:13px;background:#e2e8f0;overflow:hidden}.bar>div{height:100%;background:linear-gradient(90deg,#0ea5e9,#0c4a6e);color:#fff;font-size:.78rem;line-height:26px;padding-left:8px;white-space:nowrap}a.app{color:#0c4a6e;font-weight:600}footer{text-align:center;padding:24px;color:#64748b}</style></head><body><header class="hero"><h1>🌊 Maréa</h1><p>A maré da temporada: taxa de ocupação média mês a mês no litoral paulista.</p></header><main class="container"><div class="card" id="chart"></div><div class="card"><strong>Insights:</strong><ul><li>📈 <strong>Pico absoluto:</strong> janeiro (95%+ de ocupação)</li><li>🏄 <strong>Tração extra:</strong> julho (férias) e feriados prolongados</li><li>💤 <strong>Maré baixa:</strong> maio e agosto — foque em preço e mensalistas</li></ul></div><div class="card"><strong>Aja sobre os dados:</strong><br>📅 <a class="app" href="https://praia.digital/calendario-demanda/">Calendário de Demanda</a> — multiplicador de preço por mês<br>💸 <a class="app" href="https://praia.digital/preco-justo/">Preço Justo</a> — valide sua diária<br>📈 <a class="app" href="https://praia.digital/simulador-roi/">Simulador ROI</a> — rendimento anual com essa ocupação</div></main><footer><a class="app" href="https://praia.digital/apps/">🌐 Apps Praia Digital</a> · <a class="app" href="https://praia.digital/">praia.digital</a></footer><script>var m=[['Jan',95],['Fev',80],['Mar',55],['Abr',60],['Mai',35],['Jun',45],['Jul',65],['Ago',35],['Set',40],['Out',45],['Nov',50],['Dez',85]];document.getElementById('chart').innerHTML=m.map(function(x){return '<div class="row"><span>'+x[0]+'</span><div class="bar"><div style="width:'+x[1]+'%">'+x[1]+'% ocupação</div></div></div>'}).join('');</script></body></html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maréa — Marés do Litoral | Praia Digital</title>
+<meta name="description" content="Consulte a tábua de marés estimada do dia e descubra o melhor horário para praia, pesca e surf. Satélite de praia.digital.">
+<style>
+body{font-family:system-ui,-apple-system,sans-serif;margin:0;background:#f8fafc;color:#0f172a;line-height:1.6}
+.hero{background:linear-gradient(135deg,#0c4a6e,#0284c7);color:#fff;padding:50px 20px;text-align:center}
+.container{max-width:1000px;margin:0 auto;padding:30px 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.cta{display:inline-block;background:#fff;color:#0c4a6e;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700;margin:6px}
+button{background:#0284c7;color:#fff;border:none;padding:10px 18px;border-radius:8px;font-weight:700;cursor:pointer}
+input,select,textarea{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;margin:6px 0;font-family:inherit}
+footer{text-align:center;padding:24px;color:#64748b;font-size:.9em}
+.bar{height:14px;border-radius:7px;background:linear-gradient(90deg,#0ea5e9,#0369a1)}
+</style>
+</head>
+<body>
+<nav style="background:#0c4a6e;padding:12px 20px;display:flex;gap:14px;flex-wrap:wrap;font-family:system-ui,sans-serif">
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praia.digital/">🌊 Praia Digital</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/apps/">Hub</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/hermes-agents/">Hermes</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/area-anfitriao/">Anfitrião</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/simulador-roi/">ROI</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/simulador-credito/">Crédito</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/guia-litoral/">Guia</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/calculadoras/">Calculadoras</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/radar-precos/">Radar</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/mapa-investidor/">Mapa</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/concierge-ia/">Concierge</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/checklist-anfitriao/">Checklist</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/termometro-mercado/">Termômetro</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/alerta-ofertas/">Ofertas</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/gerador-anuncio/">Anúncios</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/quiz-praia-ideal/">Quiz</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/precificador-temporada/">Precificador</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/tour-360/">Tour 360</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/fluxo-caixa/">Caixa</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/decor-praia/">Decor</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/open-house/">Open House</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/score-bairro/">Score Bairro</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/match-praia/">Match Praia</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/temporada-pro/">Temporada Pro</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/marea/">Maréa</a>
+</nav>
+<div class="hero"><h1>🌊 Maréa</h1><p>Marés estimadas do dia no litoral paulista — melhor horário para praia, pesca e surf.</p></div>
+<div class="container">
+<div class="card"><label><strong>Data:</strong></label><input type="date" id="data" onchange="render()">
+<label><strong>Atividade:</strong></label><select id="ativ" onchange="render()"><option value="praia">🛖 Praia em família</option><option value="pesca">🎣 Pesca</option><option value="surf">🏄 Surf</option></select></div>
+<div id="lista" class="grid"></div>
+<div class="card" id="dica"></div>
+<div class="card"><h3>🗺️ Planeje a viagem</h3><p>Monte o <a href="https://praiadigital.github.io/roteiro-litoral/">Roteiro Litoral</a> completo e veja os <a href="https://praiadigital.github.io/eventos-litoral/">Eventos</a> da semana. Anfitriões: compartilhe no <a href="https://praiadigital.github.io/manual-hospede/">Manual do Hóspede</a>!</p></div>
+<p style="text-align:center;color:#64748b;font-size:.85em">⚠️ Estimativa simplificada. Para navegação, consulte a tábua oficial da Marinha.</p>
+</div>
+<script>
+function mares(d){
+const t0=Date.UTC(2026,0,1,3,42)/864e5;
+const f=((d.getTime()/864e5-t0)%12.42/12.42)*24;
+const alt=+(f.toFixed(1)), baix=+((f+6.21)%24).toFixed(1);
+return [alt,baix];}
+function render(){
+const inp=document.getElementById('data').value;
+const d=inp?new Date(inp+'T12:00:00'):new Date();
+const [a,b]=mares(d);
+const at=document.getElementById('ativ').value;
+const fmtH=h=>{const hh=Math.floor(h),mm=Math.round((h-hh)*60);return `${hh}h${String(mm).padStart(2,'0')}`;};
+document.getElementById('lista').innerHTML=`\n<div class="card" style="text-align:center;border-top:6px solid #0284c7"><h3>⬆️ Maré alta</h3><p style="font-size:2em;font-weight:800;color:#0369a1">${fmtH(a)}</p><p style="color:#64748b">Mar cheio — piscinas menores, mar mais forte</p></div>\n<div class="card" style="text-align:center;border-top:6px solid #f59e0b"><h3>⬇️ Maré baixa</h3><p style="font-size:2em;font-weight:800;color:#d97706">${fmtH(b)}</p><p style="color:#64748b">Faixa de areia ampla, piscinas naturais</p></div>`;
+const dicas={praia:`🛖 Melhor para família: a partir de ${fmtH((b+1)%24)} (pós-baixa), areia ampla e mar calmo.`,pesca:`🎣 Melhor para pesca: 1h antes da alta (${fmtH((a+23)%24)}) — peixes ativos na virada.`,surf:`🏄 Melhor para surf: enchente, entre ${fmtH(b)} e ${fmtH(a)}.`};
+document.getElementById('dica').innerHTML=`<h3>Recomendação</h3><p>${dicas[at]}</p>`;}
+render();
+</script>
+<footer>© Praia Digital — 2026 — Satélite da rede <a href="https://praia.digital">praia.digital</a> · <a href="https://praiadigital.github.io/apps/">Ver todos os apps</a></footer>
+</body>
+</html>
