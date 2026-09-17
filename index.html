@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maréa — Marés do Litoral | Praia Digital</title>
-<meta name="description" content="Consulte a tábua de marés estimada do dia e descubra o melhor horário para praia, pesca e surf. Satélite de praia.digital.">
+<title>Maréa — Guia de Marés e Praia | Praia Digital</title>
+<meta name="description" content="Melhores horários de praia, maré e atividades por período do dia no litoral paulista. Satélite de praia.digital.">
 <style>
 body{font-family:system-ui,-apple-system,sans-serif;margin:0;background:#f8fafc;color:#0f172a;line-height:1.6}
-.hero{background:linear-gradient(135deg,#0c4a6e,#0284c7);color:#fff;padding:50px 20px;text-align:center}
+.hero{background:linear-gradient(135deg,#1e3a8a,#06b6d4);color:#fff;padding:50px 20px;text-align:center}
 .container{max-width:1000px;margin:0 auto;padding:30px 20px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
 .card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
@@ -22,7 +22,7 @@ footer{text-align:center;padding:24px;color:#64748b;font-size:.9em}
 <nav style="background:#0c4a6e;padding:12px 20px;display:flex;gap:14px;flex-wrap:wrap;font-family:system-ui,sans-serif">
 <a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praia.digital/">🌊 Praia Digital</a>
 <a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/apps/">Hub</a>
-<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/hermes-agents/">Hermes</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/hermes-agents/">Hermes Agents</a>
 <a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/area-anfitriao/">Anfitrião</a>
 <a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/simulador-roi/">ROI</a>
 <a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/simulador-credito/">Crédito</a>
@@ -30,7 +30,7 @@ footer{text-align:center;padding:24px;color:#64748b;font-size:.9em}
 <a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/calculadoras/">Calculadoras</a>
 <a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/radar-precos/">Radar</a>
 <a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/mapa-investidor/">Mapa</a>
-<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/concierge-ia/">Concierge</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/concierge-ia/">Concierge IA</a>
 <a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/checklist-anfitriao/">Checklist</a>
 <a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/termometro-mercado/">Termômetro</a>
 <a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/alerta-ofertas/">Ofertas</a>
@@ -38,39 +38,34 @@ footer{text-align:center;padding:24px;color:#64748b;font-size:.9em}
 <a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/quiz-praia-ideal/">Quiz</a>
 <a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/precificador-temporada/">Precificador</a>
 <a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/tour-360/">Tour 360</a>
-<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/fluxo-caixa/">Caixa</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/fluxo-caixa/">Fluxo</a>
 <a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/decor-praia/">Decor</a>
 <a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/open-house/">Open House</a>
-<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/score-bairro/">Score Bairro</a>
-<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/match-praia/">Match Praia</a>
-<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/temporada-pro/">Temporada Pro</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/score-bairro/">Bairro Score</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/match-praia/">Match</a>
 <a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/marea/">Maréa</a>
+<a style="color:#e0f2fe;text-decoration:none;font-weight:600" href="https://praiadigital.github.io/temporada-pro/">Temporada Pro</a>
 </nav>
-<div class="hero"><h1>🌊 Maréa</h1><p>Marés estimadas do dia no litoral paulista — melhor horário para praia, pesca e surf.</p></div>
-<div class="container">
-<div class="card"><label><strong>Data:</strong></label><input type="date" id="data" onchange="render()">
-<label><strong>Atividade:</strong></label><select id="ativ" onchange="render()"><option value="praia">🛖 Praia em família</option><option value="pesca">🎣 Pesca</option><option value="surf">🏄 Surf</option></select></div>
-<div id="lista" class="grid"></div>
-<div class="card" id="dica"></div>
-<div class="card"><h3>🗺️ Planeje a viagem</h3><p>Monte o <a href="https://praiadigital.github.io/roteiro-litoral/">Roteiro Litoral</a> completo e veja os <a href="https://praiadigital.github.io/eventos-litoral/">Eventos</a> da semana. Anfitriões: compartilhe no <a href="https://praiadigital.github.io/manual-hospede/">Manual do Hóspede</a>!</p></div>
-<p style="text-align:center;color:#64748b;font-size:.85em">⚠️ Estimativa simplificada. Para navegação, consulte a tábua oficial da Marinha.</p>
+<div class="hero"><h1>🌊 Maréa</h1><p>O guia do dia perfeito na praia: maré, sol, multidão e a melhor atividade para cada horário.</p></div>
+<div class="container"><div class="grid">
+<div class="card"><h3>1️⃣ Escolha o dia</h3>
+<label>Época do ano</label><select id="epoca"><option value="verao">Verão (dez–mar)</option><option value="inverno">Inverno (jun–ago)</option><option value="meio" selected>Outono / Primavera</option></select>
+<label>Tipo de dia</label><select id="tipo"><option value="fds">Fim de semana / feriado</option><option value="semana" selected>Dia de semana</option></select>
+<label>O que você quer fazer?</label><select id="ativ"><option value="praia">Praia e banho</option><option value="surf">Surf</option><option value="trilha">Trilha / passeio</option><option value="familia">Família com crianças</option></select>
+<button onclick="gerar()">🌊 Montar meu dia</button></div>
+<div class="card"><h3>2️⃣ Seu dia ideal</h3><div id="saida"></div></div>
+</div>
+<div class="card"><h3>🏠 Hóspede chegando?</h3><p>Anfitriões: envie este guia com o <a href="https://praiadigital.github.io/concierge-ia/">Concierge IA</a> junto ao <a href="https://praiadigital.github.io/manual-hospede/">Manual do Hóspede</a> e os <a href="https://praiadigital.github.io/roteiro-litoral/">Roteiros</a>.</p></div>
 </div>
 <script>
-function mares(d){
-const t0=Date.UTC(2026,0,1,3,42)/864e5;
-const f=((d.getTime()/864e5-t0)%12.42/12.42)*24;
-const alt=+(f.toFixed(1)), baix=+((f+6.21)%24).toFixed(1);
-return [alt,baix];}
-function render(){
-const inp=document.getElementById('data').value;
-const d=inp?new Date(inp+'T12:00:00'):new Date();
-const [a,b]=mares(d);
-const at=document.getElementById('ativ').value;
-const fmtH=h=>{const hh=Math.floor(h),mm=Math.round((h-hh)*60);return `${hh}h${String(mm).padStart(2,'0')}`;};
-document.getElementById('lista').innerHTML=`\n<div class="card" style="text-align:center;border-top:6px solid #0284c7"><h3>⬆️ Maré alta</h3><p style="font-size:2em;font-weight:800;color:#0369a1">${fmtH(a)}</p><p style="color:#64748b">Mar cheio — piscinas menores, mar mais forte</p></div>\n<div class="card" style="text-align:center;border-top:6px solid #f59e0b"><h3>⬇️ Maré baixa</h3><p style="font-size:2em;font-weight:800;color:#d97706">${fmtH(b)}</p><p style="color:#64748b">Faixa de areia ampla, piscinas naturais</p></div>`;
-const dicas={praia:`🛖 Melhor para família: a partir de ${fmtH((b+1)%24)} (pós-baixa), areia ampla e mar calmo.`,pesca:`🎣 Melhor para pesca: 1h antes da alta (${fmtH((a+23)%24)}) — peixes ativos na virada.`,surf:`🏄 Melhor para surf: enchente, entre ${fmtH(b)} e ${fmtH(a)}.`};
-document.getElementById('dica').innerHTML=`<h3>Recomendação</h3><p>${dicas[at]}</p>`;}
-render();
+const sol={verao:{nasce:"6h00",poe:"19h00",pico:"11h–15h (muito cheio)"},inverno:{nasce:"6h45",poe:"17h45",pico:"11h–14h (agradável)"},meio:{nasce:"6h20",poe:"18h20",pico:"10h–14h"}};
+const ativ={praia:"Chegue cedo: areia livre, mar calmo e melhor estacionamento.",surf:"Melhores ondas na maré enchente da manhã (7h–10h).",trilha:"Trilhas de manhã cedo (7h) — evite o calor do pico.",familia:"Praia das 9h às 11h30, almoço e descanso, retorno 15h30."};
+function gerar(){
+const e=document.getElementById('epoca').value,t=document.getElementById('tipo').value,a=document.getElementById('ativ').value;
+const s=sol[e];
+const lotacao=t==='fds'?(e==='verao'?'🔴 Lotado — chegue antes das 8h':'🟡 Movimentado'):'🟢 Tranquilo';
+document.getElementById('saida').innerHTML=`<p>🌅 Nascer do sol: <strong>${s.nasce}</strong> · 🌇 Pôr do sol: <strong>${s.poe}</strong></p><p>⏰ Horário de pico: <strong>${s.pico}</strong></p><p>👥 Lotação esperada: <strong>${lotacao}</strong></p><p>🎯 Sua atividade: <strong>${ativ[a]}</strong></p><p style="color:#64748b">⚠️ Sempre confira a tábua de marés oficial do dia antes de sair.</p>`;}
+gerar();
 </script>
 <footer>© Praia Digital — 2026 — Satélite da rede <a href="https://praia.digital">praia.digital</a> · <a href="https://praiadigital.github.io/apps/">Ver todos os apps</a></footer>
 </body>
