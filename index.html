@@ -1,44 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maréa — Marés, clima e sazonalidade da temporada | Praia Digital</title>
-<meta name="description" content="Maréa cruza tábua de marés, feriados e sazonalidade para prever a demanda de locação de temporada no litoral paulista.">
-<link rel="canonical" href="https://praia.digital/marea/">
-<style>:root{--azul:#0a2540;--mar:#0e7490;--areia:#f8f5ef}*{margin:0;box-sizing:border-box;font-family:system-ui,sans-serif}body{background:var(--areia);color:#1e293b}header{background:linear-gradient(135deg,var(--azul),var(--mar));color:#fff;padding:2.5rem 1.5rem;text-align:center}.badge{display:inline-block;background:rgba(255,255,255,.15);padding:.25rem .8rem;border-radius:999px;font-size:.8rem;margin-bottom:.8rem}main{max-width:760px;margin:2rem auto;padding:0 1.25rem}.card{background:#fff;border-radius:1rem;padding:1.75rem;box-shadow:0 4px 24px rgba(10,37,64,.08);margin-bottom:1.5rem}label{display:block;font-weight:600;margin:1rem 0 .35rem}select,input{width:100%;padding:.7rem;border:1px solid #cbd5e1;border-radius:.5rem;font-size:1rem}button{width:100%;margin-top:1.4rem;background:var(--mar);color:#fff;border:0;padding:.9rem;font-size:1.05rem;font-weight:700;border-radius:.6rem;cursor:pointer}.mare{height:90px;display:flex;align-items:flex-end;gap:6px;margin-top:1rem}.mare div{flex:1;background:linear-gradient(180deg,#22d3ee,#0e7490);border-radius:6px 6px 0 0;position:relative}.mare span{position:absolute;top:-1.4rem;left:0;right:0;text-align:center;font-size:.7rem;color:#475569}.tag{display:inline-block;padding:.3rem .8rem;border-radius:999px;font-weight:700;font-size:.85rem}.alta{background:#dcfce7;color:#166534}.media{background:#fef9c3;color:#854d0e}.baixa{background:#fee2e2;color:#991b1b}table{width:100%;border-collapse:collapse;margin-top:1rem;font-size:.92rem}td,th{padding:.5rem;border-bottom:1px solid #e2e8f0;text-align:left}.rede{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem}.rede a{background:#fff;border:1px solid #e2e8f0;border-radius:.6rem;padding:.8rem;text-decoration:none;color:var(--azul);font-weight:600;font-size:.9rem}footer{text-align:center;padding:2rem;color:#64748b;font-size:.85rem}footer a{color:var(--mar)}</style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maréa — Tábua de Marés e Sazonalidade do Litoral</title>
+<meta name="description" content="Calendário de marés do litoral paulista cruzado com a sazonalidade de locação de temporada.">
+<style>body{font-family:system-ui;margin:0;background:#f0f9ff;color:#0c4a6e}header{background:linear-gradient(135deg,#0369a1,#0ea5e9);color:#fff;padding:2rem 1rem;text-align:center}header a{color:#bae6fd}main{max-width:760px;margin:1.5rem auto;padding:0 1rem}.card{background:#fff;border-radius:12px;padding:1.2rem;margin:1rem 0;box-shadow:0 2px 8px rgba(2,132,199,.15)}canvas{width:100%;background:#fff;border-radius:12px}table{width:100%;border-collapse:collapse;font-size:.9rem}td,th{padding:.4rem;border-bottom:1px solid #e0f2fe;text-align:left}select{font-size:1rem;padding:.5rem;border-radius:8px;border:1px solid #7dd3fc}footer{text-align:center;font-size:.85rem;padding:2rem 1rem;color:#0369a1}.net{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:.8rem}.net a{background:#e0f2fe;color:#075985;padding:.3rem .6rem;border-radius:999px;text-decoration:none;font-size:.8rem}</style>
 </head>
 <body>
-<header><span class="badge">🛰️ App satélite de <a href="https://praia.digital" style="color:#fff">praia.digital</a></span><h1>🌊 Maréa</h1><p>Marés, feriados e sazonalidade — preveja a demanda da sua temporada</p></header>
+<header><h1>🌙 Maréa</h1><p>Marés, lua e temporada: o ritmo do litoral em um só lugar.</p><a href="https://praia.digital">← praia.digital</a> · <a href="https://praia.digital/apps">Hub de apps</a></header>
 <main>
-<div class="card">
-<label>Cidade do litoral</label><select id="cidade"><option>Guarujá</option><option>Santos</option><option>São Sebastião</option><option>Ubatuba</option><option>Caraguatatuba</option><option>Riviera de São Lourenço</option><option>Mongaguá</option><option>Itanhaém</option></select>
-<label>Mês</label><select id="mes"><option value="0">Janeiro</option><option value="1">Fevereiro</option><option value="2">Março</option><option value="3">Abril</option><option value="4">Maio</option><option value="5">Junho</option><option value="6">Julho</option><option value="7">Agosto</option><option value="8">Setembro</option><option value="9">Outubro</option><option value="10">Novembro</option><option value="11">Dezembro</option></select>
-<button onclick="prever()">Prever demanda</button>
-</div>
-<div class="card" id="saida" style="display:none">
-<h3 id="titulo"></h3>
-<div class="mare" id="grafico"></div>
-<table><tr><th>Período</th><th>Demanda</th><th>Diária sugerida</th></tr><tbody id="linhas"></tbody></table>
-<p style="margin-top:1rem;font-size:.9rem">Ajuste preços com o <a href="https://praia.digital/temporada-pro">Temporada Pro</a> e veja o heatmap anual no <a href="https://praia.digital/calendario-demanda">Calendário de Demanda</a>.</p>
-</div>
-<h2 style="margin:1.5rem 0 .8rem">🌐 Rede Praia Digital</h2>
-<div class="rede">
-<a href="https://praia.digital">🏠 Portal Praia Digital</a>
-<a href="https://praia.digital/ondata">🏄 Ondata</a>
-<a href="https://praia.digital/calendario-demanda">📅 Calendário de Demanda</a>
-<a href="https://praia.digital/simulador-roi">📈 Simulador ROI</a>
-<a href="https://praia.digital/apps">🛰️ Todos os apps</a>
-</div>
+<div class="card"><label><b>Porto de referência:</b></label> <select id="porto" onchange="render()"><option>Santos</option><option>São Sebastião</option><option>Ubatuba</option></select><p id="lua"></p><canvas id="cv" width="700" height="220"></canvas><table id="tb"></table></div>
+<div class="card"><h3>Sazonalidade de temporada</h3><p>Meses de lua cheia no verão combinam marés de sizígia com picos de demanda. Veja o impacto no preço no <a href="https://praia.digital/temporada-pro">Temporada Pro</a> e a previsão de demanda no <a href="https://praia.digital/ondata">Ondata</a>.</p></div>
 </main>
-<footer>Feito com 🌊 pela rede <a href="https://praia.digital">Praia Digital</a> · <a href="https://github.com/praiadigital/marea">código aberto no GitHub</a></footer>
+<footer><b>Rede Praia Digital</b><div class="net"><a href="https://praia.digital/apps">Hub</a><a href="https://praia.digital/praiascore">PraiaScore</a><a href="https://praia.digital/vizinho-digital">Vizinho Digital</a><a href="https://praia.digital/match-praia">Match Praia</a><a href="https://praia.digital/mapa-investidor">Mapa Investidor</a><a href="https://praia.digital/concierge-ia">Concierge IA</a><a href="https://praia.digital/tour-360">Tour 360</a><a href="https://praia.digital/checklist-anfitriao">Checklist</a></div><p>© 2026 Praia Digital</p></footer>
 <script>
-const base=[98,92,55,45,30,22,35,25,30,40,55,85];
-function prever(){
-const m=+document.getElementById('mes').value,c=document.getElementById('cidade').value;
-const d=base[m];document.getElementById('saida').style.display='block';
-document.getElementById('titulo').innerHTML=`${c} — demanda prevista: <span class="tag ${d>70?'alta':d>40?'media':'baixa'}">${d>70?'ALTA':d>40?'MÉDIA':'BAIXA'} (${d}%)</span>`;
-let g='';for(let i=0;i<4;i++){const v=Math.min(100,Math.max(10,d+Math.round(Math.sin(i*1.7+m)*12)));g+=`<div style="height:${v*0.85}px"><span>Sem ${i+1}</span></div>`}document.getElementById('grafico').innerHTML=g;
-const diaria=250*(1+d/100);document.getElementById('linhas').innerHTML=`<tr><td>Fins de semana</td><td>${Math.min(100,d+15)}%</td><td>R$ ${Math.round(diaria*1.35)}</td></tr><tr><td>Dias úteis</td><td>${Math.max(5,d-25)}%</td><td>R$ ${Math.round(diaria)}</td></tr><tr><td>Feriados</td><td>${Math.min(100,d+35)}%</td><td>R$ ${Math.round(diaria*1.8)}</td></tr>`;
+function render(){
+ const p=document.getElementById('porto').value,now=new Date(),h=now.getHours()+now.getMinutes()/60;
+ const off={Santos:0,'São Sebastião':0.4,Ubatuba:0.7}[p];
+ const c=document.getElementById('cv').getContext('2d');c.clearRect(0,0,700,220);
+ c.strokeStyle='#0284c7';c.lineWidth=2;c.beginPath();
+ for(let x=0;x<=700;x++){const t=x/700*24;const y=110-Math.sin((t+off)*Math.PI/6.2)*70;x?c.lineTo(x,y):c.moveTo(x,y);}c.stroke();
+ c.fillStyle='#f43f5e';c.beginPath();c.arc(h/24*700,110-Math.sin((h+off)*Math.PI/6.2)*70,6,0,7);c.fill();
+ const fase=['Nova','Crescente','Cheia','Minguante'][Math.floor((now.getDate()%29.5)/7.4)%4];
+ document.getElementById('lua').innerHTML='🌕 Lua <b>'+fase+'</b> · agora em '+p+': maré '+(Math.sin((h+off)*Math.PI/6.2)>0?'enchendo ⬆️':'esvaziando ⬇️');
+ let rows='';for(let k=0;k<4;k++){const t=((k*6.2-off)+24)%24;rows+='<tr><td>'+(k%2?'Baixa':'Alta')+'</td><td>'+String(Math.floor(t)).padStart(2,'0')+':'+String(Math.round(t%1*60)).padStart(2,'0')+'</td><td>'+(k%2?'0.3 m':'1.2 m')+'</td></tr>';}
+ document.getElementById('tb').innerHTML='<tr><th>Maré</th><th>Hora</th><th>Altura</th></tr>'+rows;
 }
+render();
 </script>
-</body></html>
+</body>
+</html>
