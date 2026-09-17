@@ -1,32 +1,3 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Maréa — Tábua de Marés e Sazonalidade do Litoral</title>
-<meta name="description" content="Calendário de marés do litoral paulista cruzado com a sazonalidade de locação de temporada.">
-<style>body{font-family:system-ui;margin:0;background:#f0f9ff;color:#0c4a6e}header{background:linear-gradient(135deg,#0369a1,#0ea5e9);color:#fff;padding:2rem 1rem;text-align:center}header a{color:#bae6fd}main{max-width:760px;margin:1.5rem auto;padding:0 1rem}.card{background:#fff;border-radius:12px;padding:1.2rem;margin:1rem 0;box-shadow:0 2px 8px rgba(2,132,199,.15)}canvas{width:100%;background:#fff;border-radius:12px}table{width:100%;border-collapse:collapse;font-size:.9rem}td,th{padding:.4rem;border-bottom:1px solid #e0f2fe;text-align:left}select{font-size:1rem;padding:.5rem;border-radius:8px;border:1px solid #7dd3fc}footer{text-align:center;font-size:.85rem;padding:2rem 1rem;color:#0369a1}.net{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:.8rem}.net a{background:#e0f2fe;color:#075985;padding:.3rem .6rem;border-radius:999px;text-decoration:none;font-size:.8rem}</style>
-</head>
-<body>
-<header><h1>🌙 Maréa</h1><p>Marés, lua e temporada: o ritmo do litoral em um só lugar.</p><a href="https://praia.digital">← praia.digital</a> · <a href="https://praia.digital/apps">Hub de apps</a></header>
-<main>
-<div class="card"><label><b>Porto de referência:</b></label> <select id="porto" onchange="render()"><option>Santos</option><option>São Sebastião</option><option>Ubatuba</option></select><p id="lua"></p><canvas id="cv" width="700" height="220"></canvas><table id="tb"></table></div>
-<div class="card"><h3>Sazonalidade de temporada</h3><p>Meses de lua cheia no verão combinam marés de sizígia com picos de demanda. Veja o impacto no preço no <a href="https://praia.digital/temporada-pro">Temporada Pro</a> e a previsão de demanda no <a href="https://praia.digital/ondata">Ondata</a>.</p></div>
-</main>
-<footer><b>Rede Praia Digital</b><div class="net"><a href="https://praia.digital/apps">Hub</a><a href="https://praia.digital/praiascore">PraiaScore</a><a href="https://praia.digital/vizinho-digital">Vizinho Digital</a><a href="https://praia.digital/match-praia">Match Praia</a><a href="https://praia.digital/mapa-investidor">Mapa Investidor</a><a href="https://praia.digital/concierge-ia">Concierge IA</a><a href="https://praia.digital/tour-360">Tour 360</a><a href="https://praia.digital/checklist-anfitriao">Checklist</a></div><p>© 2026 Praia Digital</p></footer>
-<script>
-function render(){
- const p=document.getElementById('porto').value,now=new Date(),h=now.getHours()+now.getMinutes()/60;
- const off={Santos:0,'São Sebastião':0.4,Ubatuba:0.7}[p];
- const c=document.getElementById('cv').getContext('2d');c.clearRect(0,0,700,220);
- c.strokeStyle='#0284c7';c.lineWidth=2;c.beginPath();
- for(let x=0;x<=700;x++){const t=x/700*24;const y=110-Math.sin((t+off)*Math.PI/6.2)*70;x?c.lineTo(x,y):c.moveTo(x,y);}c.stroke();
- c.fillStyle='#f43f5e';c.beginPath();c.arc(h/24*700,110-Math.sin((h+off)*Math.PI/6.2)*70,6,0,7);c.fill();
- const fase=['Nova','Crescente','Cheia','Minguante'][Math.floor((now.getDate()%29.5)/7.4)%4];
- document.getElementById('lua').innerHTML='🌕 Lua <b>'+fase+'</b> · agora em '+p+': maré '+(Math.sin((h+off)*Math.PI/6.2)>0?'enchendo ⬆️':'esvaziando ⬇️');
- let rows='';for(let k=0;k<4;k++){const t=((k*6.2-off)+24)%24;rows+='<tr><td>'+(k%2?'Baixa':'Alta')+'</td><td>'+String(Math.floor(t)).padStart(2,'0')+':'+String(Math.round(t%1*60)).padStart(2,'0')+'</td><td>'+(k%2?'0.3 m':'1.2 m')+'</td></tr>';}
- document.getElementById('tb').innerHTML='<tr><th>Maré</th><th>Hora</th><th>Altura</th></tr>'+rows;
-}
-render();
-</script>
-</body>
-</html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Maréa — sazonalidade de locação no litoral | Praia Digital</title><meta name="description" content="Curva de ocupação mensal de locação de temporada no litoral paulista: quando seu imóvel mais rende."><link rel="canonical" href="https://praia.digital/marea/"><style>body{font-family:system-ui,-apple-system,sans-serif;margin:0;background:#f8fafc;color:#0f172a;line-height:1.6}.hero{background:linear-gradient(135deg,#0c4a6e,#0ea5e9);color:#fff;padding:60px 20px;text-align:center}.container{max-width:880px;margin:auto;padding:30px 20px}.card{background:#fff;border-radius:13px;padding:24px;margin-bottom:16px;box-shadow:0 3px 10px #0001}.row{display:flex;align-items:center;gap:10px;margin:6px 0}.row span{width:40px;font-weight:600}.bar{flex:1;height:26px;border-radius:13px;background:#e2e8f0;overflow:hidden}.bar>div{height:100%;background:linear-gradient(90deg,#0ea5e9,#0c4a6e);color:#fff;font-size:.78rem;line-height:26px;padding-left:8px;white-space:nowrap}a.app{color:#0c4a6e;font-weight:600}footer{text-align:center;padding:24px;color:#64748b}</style></head><body><header class="hero"><h1>🌊 Maréa</h1><p>A maré da temporada: taxa de ocupação média mês a mês no litoral paulista.</p></header><main class="container"><div class="card" id="chart"></div><div class="card"><strong>Insights:</strong><ul><li>📈 <strong>Pico absoluto:</strong> janeiro (95%+ de ocupação)</li><li>🏄 <strong>Tração extra:</strong> julho (férias) e feriados prolongados</li><li>💤 <strong>Maré baixa:</strong> maio e agosto — foque em preço e mensalistas</li></ul></div><div class="card"><strong>Aja sobre os dados:</strong><br>📅 <a class="app" href="https://praia.digital/calendario-demanda/">Calendário de Demanda</a> — multiplicador de preço por mês<br>💸 <a class="app" href="https://praia.digital/preco-justo/">Preço Justo</a> — valide sua diária<br>📈 <a class="app" href="https://praia.digital/simulador-roi/">Simulador ROI</a> — rendimento anual com essa ocupação</div></main><footer><a class="app" href="https://praia.digital/apps/">🌐 Apps Praia Digital</a> · <a class="app" href="https://praia.digital/">praia.digital</a></footer><script>var m=[['Jan',95],['Fev',80],['Mar',55],['Abr',60],['Mai',35],['Jun',45],['Jul',65],['Ago',35],['Set',40],['Out',45],['Nov',50],['Dez',85]];document.getElementById('chart').innerHTML=m.map(function(x){return '<div class="row"><span>'+x[0]+'</span><div class="bar"><div style="width:'+x[1]+'%">'+x[1]+'% ocupação</div></div></div>'}).join('');</script></body></html>
